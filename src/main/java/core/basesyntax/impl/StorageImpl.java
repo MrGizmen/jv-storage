@@ -4,9 +4,9 @@ import core.basesyntax.Storage;
 
 public class StorageImpl<K, V> implements Storage<K, V> {
     private static final int MAX_STORAGE_CAPACITY = 10;
-    private Object[] keyArray = new Object[MAX_STORAGE_CAPACITY];
-    private Object[] valueArray = new Object[MAX_STORAGE_CAPACITY];
-    int size;
+    private final Object[] keyArray = new Object[MAX_STORAGE_CAPACITY];
+    private final Object[] valueArray = new Object[MAX_STORAGE_CAPACITY];
+    private int size;
 
     private boolean ifResult(K firstKey, K secondKey) {
         return (firstKey == null && secondKey == null)
@@ -33,7 +33,6 @@ public class StorageImpl<K, V> implements Storage<K, V> {
             if (ifResult((K) keyArray[i], key)) {
                 return (V) valueArray[i];
             }
-
         }
         return null;
     }
